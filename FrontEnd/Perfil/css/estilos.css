@@ -1,0 +1,24 @@
+body{
+    padding: 2rem;
+    background-color: #FBF7ED!important;
+    
+}
+
+.botones{
+    background-color:#236B3E!important;
+    color: white!important;
+    font-size: 1.2rem;
+
+
+}
+
+.miniatura{
+    width: 2rem;
+    height: 2rem;
+
+}
+
+.foto{
+    width: 7rem;
+    height: 7rem;
+}

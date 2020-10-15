@@ -1,0 +1,158 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Perfil Usuario</title>
+  </head>
+  <body >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #FBF7ED!important;">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Bienvenido Joselp<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ubicaciones</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Ayuda!!</a>
+            </li>
+          </ul>
+          <div class="rounded-pill mx-2 p-1 btn" style="background-color: #3ca765;" data-toggle="modal" data-target="#modalPerfil">
+            <!--foto de perfil--> 
+            <img src="img/fotoPerfil.jpg" alt="" class="miniatura rounded-circle"> <b style="color:#236B3E;">Joselp</b>
+          </div>
+          <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-warning rounded-pill my-2 my-sm-0 botones" type="submit">Logout</button>
+          </form>
+        </div>
+      </nav>
+      <div class="mx-2 my-4 p-2" style="width: 45%; float: left; background-color: white;">
+            <h2>Tabla de Pedidos</h2>
+            <table class="table table-hover border border-ligth">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Repartidor</th>
+                    <th scope="col">ubicacion salida</th>
+                    <th scope="col">ubicacion Entrega</th>
+                    <th scope="col">Fecha Entrega</th>
+                    <th scope="col">Estatus</th>
+                    
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Juan</td>
+                    <td>Col santa Maria</td>
+                    <td>Keneedy </td>
+                    <td>21-02-2016</td>
+                    <td>Completado</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Juan</td>
+                    <td>Col santa Maria</td>
+                    <td>Keneedy </td>
+                    <td>21-02-2016</td>
+                    <td>En camino</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Juan</td>
+                    <td>Col santa Maria</td>
+                    <td>Keneedy </td>
+                    <td>21-02-2016</td>
+                    <td>Pendiente</td>
+                  </tr>
+                </tbody>
+              </table>
+      </div>
+      <div class="mx-4 my-4" style="width: 45%; float: left; border: black;">
+        <h1>Nuevo Pedido</h1>
+            <form action="" style="background-color: white!important;">
+                <div class="container-fluid">
+                    <div class="row">
+
+                    </div>
+                </div>
+            </form>
+      </div>
+
+      <div class="modal fade" id="modalPerfil" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalPerfilLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalPerfilLabel">Perfil Usuario</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-3 mx-auto ">
+                                <img src="img/fotoPerfil.jpg" alt="" class="foto rounded-circle mx-auto">
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-8 mx-auto">
+                                Correo: joselp256@hotmail.es
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-8 mx-auto">
+                                Joselp Aguilar
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-8 mx-auto">
+                                Direccion: Colonia Santa Maria, Francisco Morazan
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8 mx-auto">
+                                Fecha Nacimiento: 16 abril 1996
+                            </div>
+                        </div>
+                    </div>
+
+                
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Editar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
