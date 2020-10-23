@@ -25,6 +25,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastname',
         'email',
         'password',
     ];
@@ -58,22 +59,4 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function empleado(){
-        return $this->hasOne('App\Models\Employee');
-    }
-
-    public function telephone(){
-        return $this->hasMany('App\Models\Telephone');
-    }
-
-    public function EsUnEmpleado(){
-        $empleado = Employee::where('user_id',$this->id)->first();
-        if ($empleado!=null) {
-            return True; 
-        } else {
-            return False;
-        }
-        
-    }
 }

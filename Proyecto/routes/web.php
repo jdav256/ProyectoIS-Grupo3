@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,13 +18,5 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-
-    if (Auth::user()->empleado) {
-        return view('employee');
-    } else {
-        return view('dashboard');
-    }
-    
-    
+    return view('dashboard');
 })->name('dashboard');
-
