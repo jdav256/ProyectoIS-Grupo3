@@ -71,4 +71,22 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Address');
     }
+    
+    public function empleado(){
+        return $this->hasOne('App\Models\Employee');
+    }
+
+    public function telephone(){
+        return $this->hasMany('App\Models\Telephone');
+    }
+
+    public function EsUnEmpleado(){
+        $empleado = Employee::where('user_id',$this->id)->first();
+        if ($empleado!=null) {
+            return True; 
+        } else {
+            return False;
+        }
+        
+    }
 }
