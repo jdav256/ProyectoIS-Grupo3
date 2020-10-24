@@ -7,9 +7,15 @@
                     <x-jet-input id="historial-send" class="block mt-1 w-full" wire:model=""/>
                 </div>
                 <div class="overflow-y-scroll h-96 mt-4">
-                    @for ($i = 0; $i < 25; $i++) 
-                        @livewire('opcion-historial', ['order_id' => $i])
-                    @endfor
+                    @foreach (Auth::user()->addresses as $address)
+                        @foreach ($address->orders as $order)
+                        <div class="shadow overflow-hidden mx-auto my-1 sm:rounded-sm md:rounded-2xl w-11/12" wire:click="seleccionar({{$order_id}})">
+                            <div class="p-2 rounded-2xl bg-white sm:p-6 h-full">
+                                <p>Pedido: {{$order->order_number}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                    @endforeach
                 </div>
             </div>
             
