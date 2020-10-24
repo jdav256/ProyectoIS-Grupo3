@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBonusTable extends Migration
+class CreateSalariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateBonusTable extends Migration
      */
     public function up()
     {
-        Schema::create('bonus', function (Blueprint $table) {
+        Schema::create('salaries', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
             $table->string('amount');
-            $table->date('effective_date');
+            $table->dateTime('accreditation_date');
+            $table->string('extra_hours');
+            $table->string('bank_account');
             $table->unsignedBigInteger('employee_id');
-            $table->foreign('employee_id')->references('id')->on('employee')->onDelete('cascade');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateBonusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bonus');
+        Schema::dropIfExists('salaries');
     }
 }

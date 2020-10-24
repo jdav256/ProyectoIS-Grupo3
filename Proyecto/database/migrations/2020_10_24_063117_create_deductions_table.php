@@ -18,7 +18,7 @@ class CreateDeductionsTable extends Migration
             $table->string('description');
             $table->string('amount');
             $table->unsignedBigInteger('salary_id');
-            $table->foreign('salary_id')->references('id')->on('salary')->onDelete('cascade');
+            $table->foreign('salary_id')->references('id')->on('salaries')->onDelete('cascade');
             $table->timestamps();
         });
     }
