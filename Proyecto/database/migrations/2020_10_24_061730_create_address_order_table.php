@@ -15,9 +15,9 @@ class CreateAddressOrderTable extends Migration
     {
         Schema::create('address_order', function (Blueprint $table) {
             $table->unsignedBigInteger('address_id');
-            $table->foreign('address_id')->references('id')->on('address')->onDelete('cascade');
+            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
             $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('order')->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->primary(array('address_id','order_id'));
             $table->tinyInteger('position');
             $table->timestamps();

@@ -1,1 +1,0 @@
-Carpeta destinada al proyecto

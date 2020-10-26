@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTelephoneTable extends Migration
+class CreateTelephonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTelephoneTable extends Migration
      */
     public function up()
     {
-        Schema::create('telephone', function (Blueprint $table) {
+        Schema::create('telephones', function (Blueprint $table) {
             $table->string('id');
             $table->primary('id');
             $table->unsignedBigInteger('user_id');
