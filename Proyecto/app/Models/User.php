@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
@@ -64,7 +65,11 @@ class User extends Authenticatable
 
     public function orders() 
     {
-        return $this->addresses()->orders();
+        return DB::table('Orders')
+            ->join('Address_Order', 'orders.id', '=', 'order_id')
+            ->join('Addresses', 'addresses.id', '=', 'address_id')
+            ->select('orders.*')
+            ->get();
     }
 
     public function addresses() 

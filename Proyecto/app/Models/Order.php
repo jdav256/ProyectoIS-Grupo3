@@ -9,7 +9,30 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $dates = [
+        'order_date',
+        'delivery_date'
+    ];
+
+    protected $casts = [
+        'order_date' => 'date',
+        'delivery_date' => 'date'
+    ];
+
+    protected $dateFormat = 'd/m/Y';
+
+    public function packages()
+    {
+        return $this->hasMany('App\Models\Package');
+    }
+
     public function employee(){
-        return $this->belongsTo('App/Models/Employee','employee_id');
+        return $this->belongsTo('App\Models\Employee','employee_id');
+    }
+
+    public function addresses()
+    {
+        return $this->belongsToMany('App\Models\Address')
+                    ->using('App\Models\AddressOrder');
     }
 }

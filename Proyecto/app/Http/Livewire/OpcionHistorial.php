@@ -6,10 +6,16 @@ use Livewire\Component;
 
 class OpcionHistorial extends Component
 {
-    public $order_id;
+    private $order;
+    public $active;
+
+    public function mount($order)
+    {
+        $this->order = $order;
+    }
 
     public function render()
     {
-        return view('livewire.opcion-historial');
+        return view('livewire.opcion-historial', ['order' => $this->order]);
     }
 }

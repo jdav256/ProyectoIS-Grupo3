@@ -2,19 +2,74 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Order;
+use App\Models\Package;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoHistorial extends Component
 {
-    public $pedido_seleccionado = 0;
+    public $selected_order = null;
+    public $selected_package = null;
+    public $query = "";
 
-    public function seleccionar($id)
+    protected $listeners = ['select'];
+
+    public function __construct()
     {
-        $this->pedido_seleccionado = $id;
+        $orders = DB::table('Orders')
+        ->join('Address_Order', 'orders.id', '=', 'order_id')
+        ->join('Addresses', 'addresses.id', '=', 'address_id')
+        ->select('orders.*')
+        ->where('addresses.user_id', Auth::user()->id)
+        ->orderByDesc('order_date')
+        ->groupBy('orders.id')
+        ->get();;
+
+        if(sizeof($orders) > 0) $this->selected_order = $orders->first()->id;
+    }
+
+    public function select($id)
+    {
+        $this->selected_order = $id;
+        $this->selected_package = null;
+    }
+
+    public function selectPackage($id)
+    {
+        $this->selected_package = $id;
     }
 
     public function render()
     {
-        return view('livewire.pedido-historial');
+        $order = null;
+        $package = null;
+        $orders = [];
+
+        $orders = DB::table('Orders')
+            ->join('Address_Order', 'orders.id', '=', 'order_id')
+            ->join('Addresses', 'addresses.id', '=', 'address_id')
+            ->select('orders.*')
+            ->where([
+                ['order_number', 'LIKE' , "%$this->query%"],
+                ['addresses.user_id', Auth::user()->id]
+            ])
+            ->orWhere('orders.description', 'LIKE' , "%$this->query%")
+            ->orderByDesc('order_date', 'orders.order_number')
+            ->groupBy('orders.id')
+            ->get();
+
+
+        if($this->selected_order !== null)
+        {
+            $order = Order::find($this->selected_order);
+        }
+
+        if($this->selected_package !== null ){
+            $package = Package::find($this->selected_package);
+        }
+
+        return view('livewire.pedido-historial', ['details_order' => $order, 'orders' => $orders, 'detail_package' => $package]);
     }
 }
