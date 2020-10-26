@@ -19,11 +19,11 @@
                         <x-slot name="form">
                             <div class="col-span-6 sm:col-span-4">
                                 <x-jet-label for="" value="{{ __('Nombre Pedido') }}" />
-                                <x-jet-input id="name" type="text" class="mt-1 block w-full" placeholder="Add un nombre a su pedido" />
+                                <x-jet-input id="name" type="text" class="mt-1 block w-full" placeholder="Add un nombre a su pedido" write:model='impuntNombre' />
                             </div>
                             <div class="col-span-6 sm:col-span-4">
                                 <x-jet-label for="" value="{{ __('Descripcion') }}" />
-                                <label for=""> <textarea name="" id="" cols="60" rows="3" class="mt-1 block w-full" placeholder="Describa su pedido" ></textarea> </label>
+                                <label for=""> <textarea name="" id="" cols="60" rows="3" class="mt-1 block w-full" placeholder="Describa su pedido" write:model='desciption'></textarea> </label>
         
                             </div>
                             <div class="col-span-6 sm:col-span-4">
@@ -57,7 +57,7 @@
     
                         </x-slot>
                     </x-jet-form-section>
-                    <x-jet-button wire:loading.attr="disabled">
+                    <x-jet-button wire:click='Guardar'>
                         {{ __('Guardar') }}
                     </x-jet-button>
                     <div class="block px-4 py-2 text-xs text-gray-400">
