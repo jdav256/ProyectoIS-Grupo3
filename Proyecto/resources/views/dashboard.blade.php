@@ -5,5 +5,5 @@
         </h2>
         <a href="" class="mr-2">Solicitud de Entrega</a>
     </x-slot> 
-    <livewire:formulario-ordenes/>
+    <livewire:formulario-ordenes />
 </x-app-layout>
