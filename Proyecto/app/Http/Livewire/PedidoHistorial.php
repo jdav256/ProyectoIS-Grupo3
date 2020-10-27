@@ -25,7 +25,7 @@ class PedidoHistorial extends Component
         ->where('addresses.user_id', Auth::user()->id)
         ->orderByDesc('order_date')
         ->groupBy('orders.id')
-        ->get();;
+        ->get();
 
         if(sizeof($orders) > 0) $this->selected_order = $orders->first()->id;
     }
@@ -48,14 +48,12 @@ class PedidoHistorial extends Component
         $orders = [];
 
         $orders = DB::table('Orders')
-            ->join('Address_Order', 'orders.id', '=', 'order_id')
-            ->join('Addresses', 'addresses.id', '=', 'address_id')
-            ->select('orders.*')
+            
+        
             ->where([
                 ['order_number', 'LIKE' , "%$this->query%"],
-                ['addresses.user_id', Auth::user()->id]
+                ['Orders.user_id', Auth::user()->id]
             ])
-            ->orWhere('orders.description', 'LIKE' , "%$this->query%")
             ->orderByDesc('order_date', 'orders.order_number')
             ->groupBy('orders.id')
             ->get();
