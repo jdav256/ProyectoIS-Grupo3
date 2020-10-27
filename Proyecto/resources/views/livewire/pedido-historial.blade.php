@@ -93,7 +93,7 @@
                     
                                         <div class="mt-4">
                                             <x-jet-label for="package-volume">Volumen</x-jet-label>
-                                            <x-jet-input id="package-volume" class="block mt-1 w-full" value="{{$detail_package->volume}} m3" />
+                                            <x-jet-input id="package-volume" class="block mt-1 w-full" value="{{$detail_package->volume}} m3" disabled/>
                                         </div>
                                     </div>
                                     <div class="col-span-1">

@@ -19,13 +19,10 @@ class PedidoHistorial extends Component
     public function __construct()
     {
         $orders = DB::table('Orders')
-        ->join('Address_Order', 'orders.id', '=', 'order_id')
-        ->join('Addresses', 'addresses.id', '=', 'address_id')
-        ->select('orders.*')
-        ->where('addresses.user_id', Auth::user()->id)
-        ->orderByDesc('order_date')
-        ->groupBy('orders.id')
-        ->get();;
+            ->where('orders.user_id', Auth::user()->id)
+            ->orderByDesc('order_date')
+            ->groupBy('orders.id')
+            ->get();
 
         if(sizeof($orders) > 0) $this->selected_order = $orders->first()->id;
     }
@@ -48,18 +45,15 @@ class PedidoHistorial extends Component
         $orders = [];
 
         $orders = DB::table('Orders')
-            ->join('Address_Order', 'orders.id', '=', 'order_id')
-            ->join('Addresses', 'addresses.id', '=', 'address_id')
-            ->select('orders.*')
-            ->where([
-                ['order_number', 'LIKE' , "%$this->query%"],
-                ['addresses.user_id', Auth::user()->id]
-            ])
-            ->orWhere('orders.description', 'LIKE' , "%$this->query%")
+            ->where(function($query){
+                $query->where('orders.user_id', Auth::user()->id)
+                    ->where(function($query){
+                        $query->where('orders.description', 'LIKE' , "%$this->query%")
+                            ->orWhere('order_number', 'LIKE' , "%$this->query%");
+                    });
+            })
             ->orderByDesc('order_date', 'orders.order_number')
-            ->groupBy('orders.id')
             ->get();
-
 
         if($this->selected_order !== null)
         {

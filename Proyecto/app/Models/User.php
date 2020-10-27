@@ -65,11 +65,7 @@ class User extends Authenticatable
 
     public function orders() 
     {
-        return DB::table('Orders')
-            ->join('Address_Order', 'orders.id', '=', 'order_id')
-            ->join('Addresses', 'addresses.id', '=', 'address_id')
-            ->select('orders.*')
-            ->get();
+        return $this->hasMany('App\Models\Order');
     }
 
     public function addresses() 
