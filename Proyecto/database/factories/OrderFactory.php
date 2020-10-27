@@ -25,6 +25,8 @@ class OrderFactory extends Factory
      */
     public function definition()
     {
+       
+        
         if($this->empleado>10){
             $this->empleado=1;
         }

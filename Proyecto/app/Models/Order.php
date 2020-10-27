@@ -19,7 +19,7 @@ class Order extends Model
         'delivery_date' => 'date'
     ];
 
-    protected $dateFormat = 'd/m/Y';
+    protected $dateFormat = 'Y-m-d';
 
     public function packages()
     {
