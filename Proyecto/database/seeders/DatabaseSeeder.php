@@ -5,9 +5,9 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Address;
+use App\Models\AddressOrder;
 use App\Models\Employee;
 use App\Models\Telephone;
-use App\Models\AddressOrder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        
         User::factory(20)->create();
         Employee::factory(10)->create();
         Address::factory(40)->create();
