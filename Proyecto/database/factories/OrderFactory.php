@@ -35,6 +35,7 @@ class OrderFactory extends Factory
         }
         return [
                     'order_number'=>$this->pedido++,
+                    'status'=>'espera', //sinAsignar,Espera,Iniciado,Parada1,Parada2,Terminado
                     'order_date'=>$this->faker->dateTimeBetween('-5 days','now'),
                     'delivery_date'=>$this->faker->dateTimeBetween('+0 days', '+1 week'),
                     'delivery_cost'=>'400',

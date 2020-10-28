@@ -11,7 +11,12 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                
+               
+                @php
+                    $empleado = Auth::user()->empleado;
+                    $pedidosEmpleado = $empleado->order()->get();
+                @endphp
+                <livewire:pedidos-table :empleado="$empleado" :pedidosAsignados="$pedidosEmpleado"/> 
             </div>
         </div>
     </div>

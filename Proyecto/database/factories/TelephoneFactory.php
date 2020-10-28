@@ -24,7 +24,7 @@ class TelephoneFactory extends Factory
     public function definition()
     {
         return [
-            'id'=>$this->faker->phoneNumber,
+            'telephone'=>$this->faker->phoneNumber,
             'user_id'=>$this->number++
         ];
     }
