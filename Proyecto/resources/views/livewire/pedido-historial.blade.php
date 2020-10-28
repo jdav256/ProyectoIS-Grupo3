@@ -1,7 +1,7 @@
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
     <div class="sm:rounded-lg md:py-y">
         <div class="flex flex-col px-4 md:px-0 md:grid md:grid-cols-3 md:grid-rows-1 gap-4 py-4 md:py-0 w-full">
-            <div class="shadow sm:rounded-md w-1/3 md:col-span-1 md:w-full md:row-span-1 h-screen">
+            <div class="shadow sm:rounded-md md:col-span-1 md:w-full md:row-span-1 h-screen">
                 <div class="bg-white h-full">
                     <div class="px-6 pt-4">
                         <x-jet-label for="historial-send">Buscar orden</x-jet-label>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             
-            <div class="shadow overflow-hidden sm:rounded-md w-2/3 md:col-span-2 md:w-full md:row-span-1"">
+            <div class="shadow overflow-hidden sm:rounded-md md:col-span-2 md:w-full md:row-span-1"">
                 <div class="px-4 py-5 bg-white sm:p-6 h-full">
                     @if($details_order !== null)
                     <h1 class="text-xl">Número de Pedido: {{$details_order->order_number}}</h1>
@@ -71,18 +71,18 @@
                     <div class="mt-5">
                         @if(sizeof($details_order->packages) > 0)
                         <h2 class="text-lg">Paquetes</h2> 
-                        <div class="mt-5 grid grid-cols-3 gap-4">                      
-                            <div class="col-span-1">
+                        <div class="mt-5 flex flex-wrap gap-4">                      
+                            <div class="md:w-1/3">
                                 
-                                <div class="grid grid-cols-3 gap-4 border-2 rounded-md border-gray-100 p-3 h-full">
+                                <div class="flex flex-row flex-grow gap-4 border-2 rounded-md border-gray-100 p-3 h-full">
                                     @foreach ($details_order->packages as $package)
-                                    <img wire:click="selectPackage({{$package->id}})" class="col-span-1 @if($selected_package === $package->id) shadow-outline @endif h-16 w-16 rounded-full object-cover cursor-pointer"
+                                    <img wire:click="selectPackage({{$package->id}})" class="@if($selected_package === $package->id) shadow-outline @endif h-16 w-16 rounded-full object-cover cursor-pointer"
                                         src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                     @endforeach
                                 </div> 
                                 
                             </div>
-                            <div class="col-span-2">
+                            <div class="">
                                 <div class="grid grid-cols-3 gap-4">    
                                     @if($detail_package !== null)
                                     <div class="col-span-2">
