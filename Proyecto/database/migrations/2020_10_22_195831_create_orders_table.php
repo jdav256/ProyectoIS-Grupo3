@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('order_number');
-            $table->string('status');
+            $table->string('status')->default('En proceso');
             $table->dateTime('order_date');
             $table->dateTime('delivery_date');
             $table->string('delivery_cost');

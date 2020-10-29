@@ -9,6 +9,9 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+
     protected $dates = [
         'order_date',
         'delivery_date'

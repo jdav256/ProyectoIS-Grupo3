@@ -52,7 +52,7 @@ class PedidoHistorial extends Component
                             ->orWhere('order_number', 'LIKE' , "%$this->query%");
                     });
             })
-            ->orderByDesc('order_date', 'orders.order_number')
+            ->orderByDesc('order_number')
             ->get();
 
         if($this->selected_order !== null)

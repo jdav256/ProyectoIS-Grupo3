@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Package extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'is_it_fragile',
+        'volume',
+        'weight',
+        'order_id'
+    ];
+
+    protected $casts = [
+        'is_it_fragil' => 'boolean'
+    ];
 }
