@@ -15,7 +15,8 @@ class CreatePackagesTable extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->string('description')->default('');
+            $table->string('image')->nullable();
             $table->string('volume');
             $table->double('weight');
             $table->tinyInteger('is_it_fragile');

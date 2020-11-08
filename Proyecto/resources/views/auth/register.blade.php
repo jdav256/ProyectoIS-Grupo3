@@ -9,14 +9,33 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <div class="flex gap-4">
+                <div>
+                    <x-jet-label for="name" value="{{ __('Name') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                </div>
+
+                <div>
+                    <x-jet-label for="lastname" value="{{ __('Lastname') }}" />
+                    <x-jet-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
+                </div>
             </div>
 
-            <div class="mt-4">
-                <x-jet-label for="lastname" value="{{ __('Lastname') }}" />
-                <x-jet-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
+            <div class="flex gap-4 mt-4">
+                <div class="w-1/3">
+                    <x-jet-label for="gender" value="{{ __('Gender') }}" />
+                    <select id="gender" name="gender" class="form-input rounded-md shadow-sm block mt-1 w-full" >
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select> 
+                </div>
+
+                <div class="w-2/3">
+                    <x-jet-label for="birthdate" value="{{ __('Birthday') }}" />
+                    <x-jet-input id="birthdate" class="block mt-1 w-full" type="date" name="birthdate" :value="old('birthdate')" required autofocus autocomplete="birthdate" />
+                </div>
             </div>
 
             <div class="mt-4">

@@ -10,4 +10,7 @@ class AddressOrder extends Pivot
     use HasFactory;//
 
     protected $table = 'address_order';
+
+    protected $guarded = [];
+    
 }

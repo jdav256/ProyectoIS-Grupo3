@@ -14,8 +14,8 @@ class CreateTelephonesTable extends Migration
     public function up()
     {
         Schema::create('telephones', function (Blueprint $table) {
-            $table->string('id');
-            $table->primary('id');
+            $table->id();
+            $table->string('telephone')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
