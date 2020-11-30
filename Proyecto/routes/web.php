@@ -29,3 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/historial', function () {
     return view('pedido.historial');
 })->name('historial');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/comment', function () {
+    return view('comentarios.comment');
+})->name('comment');
