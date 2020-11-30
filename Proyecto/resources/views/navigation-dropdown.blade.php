@@ -23,6 +23,13 @@
                         </x-jet-nav-link>
                     </div>
                 @endif
+                @if (Auth::user()->empleado==null)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('comment') }}" :active="request()->routeIs('comment')">
+                            {{ __('Comentar') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
                 
             </div>
 
