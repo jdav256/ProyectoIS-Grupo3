@@ -1,3 +1,4 @@
+<center>
 <div class="container bg-gray-100">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div wire:ignore.self class="bg-gray-200 rounded-lg">
@@ -50,3 +51,4 @@
         </div>
     </div>
 </div>
+</center>

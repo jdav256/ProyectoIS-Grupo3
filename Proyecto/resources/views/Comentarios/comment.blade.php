@@ -4,11 +4,14 @@
             {{ __('Comentar') }}
         </h2>
     </x-slot>
-
-    <div class="py-12 bg-gray-100">
-        @livewire('comentar')
+    <div>
+        <div class="py-12 bg-gray-100">
+            @livewire('page-info')
+        </div>
     </div>
-
-
-    
+    <div>
+        <div class="py-12 bg-gray-100">
+            @livewire('comentar')
+        </div>
+    </div>
 </x-app-layout>
