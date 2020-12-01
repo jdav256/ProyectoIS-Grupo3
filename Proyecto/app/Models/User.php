@@ -88,6 +88,13 @@ class User extends Authenticatable
         } else {
             return False;
         }
-        
+    }
+
+    public function admin(){
+        $empleado = Employee::where('user_id',$this->id)->first();
+        if ($empleado!=null) {
+            if($empleado->employee_type == "administrador") return true;
+        }
+        return False;
     }
 }

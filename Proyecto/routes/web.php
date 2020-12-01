@@ -18,18 +18,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    if (Auth::user()->empleado) {
-        return view('employee');
-    } else {
-        return view('dashboard');
-    }
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+    Route::get('/dashboard', function () {
+        if (Auth::user()->empleado) {
+            return view('employee');
+        } else {
+            return view('dashboard');
+        }
+    })->name('dashboard');
+    Route::get('/empleado/nuevo','NewEmployee@create')->name('nempleado');
+    Route::post('/empleado/nuevo','NewEmployee@store')->name('sempleado');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/historial', function () {
     return view('pedido.historial');
 })->name('historial');
+<<<<<<< HEAD
+=======
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/comment', function () {
     return view('comentarios.comment');
 })->name('comment');
+>>>>>>> 7d71cb7902b26f1f21ed987b88de3ecd1f443591
