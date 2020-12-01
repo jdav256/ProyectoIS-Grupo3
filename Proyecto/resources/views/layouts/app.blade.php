@@ -12,6 +12,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <script src="https://kit.fontawesome.com/0c64c7bc4a.js" crossorigin="anonymous"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj66Q7qZZynBw7_HgEexpxWu1QFnlnzlk"></script>
 
         @livewireStyles
 
