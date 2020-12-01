@@ -23,6 +23,7 @@
                         </x-jet-nav-link>
                     </div>
                 @endif
+<<<<<<< HEAD
 
                 @if (Auth::user()->admin())
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -32,6 +33,16 @@
                 </div>
                 @endif
 
+=======
+                @if (Auth::user()->empleado==null)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('comment') }}" :active="request()->routeIs('comment')">
+                            {{ __('Comentar') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
+                
+>>>>>>> 7d71cb7902b26f1f21ed987b88de3ecd1f443591
             </div>
 
             <!-- Settings Dropdown -->

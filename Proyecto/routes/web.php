@@ -33,3 +33,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 Route::middleware(['auth:sanctum', 'verified'])->get('/historial', function () {
     return view('pedido.historial');
 })->name('historial');
+<<<<<<< HEAD
+=======
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/comment', function () {
+    return view('comentarios.comment');
+})->name('comment');
+>>>>>>> 7d71cb7902b26f1f21ed987b88de3ecd1f443591
