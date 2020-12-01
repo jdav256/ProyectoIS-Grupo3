@@ -20,7 +20,7 @@ class PedidoHistorial extends Component
     {
         $orders = DB::table('Orders')
             ->where('orders.user_id', Auth::user()->id)
-            ->orderByDesc('order_date')
+            ->orderByDesc('id')
             ->groupBy('orders.id')
             ->get();
 
@@ -52,7 +52,7 @@ class PedidoHistorial extends Component
                             ->orWhere('order_number', 'LIKE' , "%$this->query%");
                     });
             })
-            ->orderByDesc('order_number')
+            ->orderByDesc('id')
             ->get();
 
         if($this->selected_order !== null)

@@ -23,7 +23,15 @@
                         </x-jet-nav-link>
                     </div>
                 @endif
-                
+
+                @if (Auth::user()->admin())
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('nempleado') }}" :active="request()->routeIs('historial')">
+                        {{ __('Añadir empleado') }}
+                    </x-jet-nav-link>
+                </div>
+                @endif
+
             </div>
 
             <!-- Settings Dropdown -->
