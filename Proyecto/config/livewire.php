@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'asset_url'  => null,//'http://localhost/Proyecto-IS/Proyecto/public',
+    'asset_url'  => 'http://localhost/ProyectoIS-Grupo3/Proyecto/public',
 
     /*
     |--------------------------------------------------------------------------
